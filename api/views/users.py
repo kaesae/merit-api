@@ -1,8 +1,8 @@
 from rest_framework.response import Response
-from ..serializers.user import UserSerializer
 from rest_framework import status, generics
-from django.contrib.auth import authenticate, login
 from rest_framework.authtoken.models import Token
+from ..serializers.user import UserSerializer
+from django.contrib.auth import authenticate, login
 
 class SignUp(generics.CreateAPIView):
     authentication_classes = ()
@@ -17,6 +17,8 @@ class SignUp(generics.CreateAPIView):
             return Response(new_user.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class SignIn(generics.CreateAPIView):
+    authentication_classes = ()
+    permission_classes = ()
 
     def post(self, request):
         email = request.data['email']
@@ -37,3 +39,4 @@ class SignIn(generics.CreateAPIView):
             })
         else:
             return Response({ 'msg': 'The username and/or password is incorrect.' }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
