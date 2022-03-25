@@ -2,7 +2,7 @@ from rest_framework.response import Response
 from rest_framework import status, generics
 from rest_framework.authtoken.models import Token
 from ..serializers.user import UserSerializer
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 class SignUp(generics.CreateAPIView):
     authentication_classes = ()
@@ -45,10 +45,19 @@ class ChangePassword(generics.UpdateAPIView):
         user = request.user
         old_password = request.data['passwords']['old']
         new_password = request.data['passwords']['new']
-
         if user.check_password(old_password):
             user.set_password(new_password)
             user.save()
             return Response({ 'msg': 'Password updated!' }, status=status.HTTP_204_NO_CONTENT)
         else: 
             return Response({ 'msg': 'The username and/or password is incorrect.' }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+class SignOut(generics.DestroyAPIView):
+    def delete(self, request):
+        user = request.user
+        Token.objects.filter(user=user).delete()
+        user.token = None
+        user.save()
+        logout(request)
+        return Response({ 'msg': 'You are signed out!' }, status=status.HTTP_204_NO_CONTENT)
+
