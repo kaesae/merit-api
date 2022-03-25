@@ -40,3 +40,15 @@ class SignIn(generics.CreateAPIView):
         else:
             return Response({ 'msg': 'The username and/or password is incorrect.' }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
+class ChangePassword(generics.UpdateAPIView):
+    def patch(self, request):
+        user = request.user
+        old_password = request.data['passwords']['old']
+        new_password = request.data['passwords']['new']
+
+        if user.check_password(old_password):
+            user.set_password(new_password)
+            user.save()
+            return Response({ 'msg': 'Password updated!' }, status=status.HTTP_204_NO_CONTENT)
+        else: 
+            return Response({ 'msg': 'The username and/or password is incorrect.' }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
