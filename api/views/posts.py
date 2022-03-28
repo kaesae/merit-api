@@ -6,13 +6,13 @@ from ..models.post import Post
 from django.shortcuts import get_object_or_404
 from django.core.exceptions import PermissionDenied
 
-
-class PostsView(APIView):
+class OverviewView(APIView):
     def get(self, request):
         posts = Post.objects.filter(author=request.user.id)
         data = PostSerializer(posts, many=True).data
         return Response(data)
 
+class PostsView(APIView):
     def post(self, request):
         request.data['author'] = request.user.id
         post = PostSerializer(data=request.data)
@@ -29,3 +29,8 @@ class PostView(APIView):
             raise PermissionDenied('Unauthorized, you do not own this post')
         data = PostSerializer(post).data
         return Response(data)
+
+    def delete(self, request, pk):
+        post = get_object_or_404(Post, pk=pk)
+        post.delete()
+        return Response(status=status.HTTP_204_NO_POST)
