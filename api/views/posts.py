@@ -9,3 +9,12 @@ class PostsView(APIView):
         posts = Post.objects.filter(author=request.user.id)
         data = PostSerializer(posts, many=True).data
         return Response(data)
+
+    def post(self, request):
+        request.data['author'] = request.user.id
+        post = PostSerializer(data=request.data)
+        if post.is_valid():
+            post.save()
+            return Response(post.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(post.errors, status=status.HTTP_400_BAD_REQUEST)
