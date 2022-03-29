@@ -5,9 +5,9 @@
 
 |  Day | Deliverable | Status
 |---|---| ---|
-|Day 1| Planning and Approval | Incomplete
-|Day 1| Set up backend with Python/Django| Incomplete
-|Day 1.5| Test backend | Incomplete
+|Day 1| Planning and Approval | Complete
+|Day 1| Set up backend with Python/Django| Complete
+|Day 1.5| Test backend | Complete
 |Day 2| Set up frontend with React then test | Incomplete
 |Day 2.5| Test frontend | Incomplete
 |Day 3| Minimal CSS, then JavaScript functions | Incomplete
@@ -93,9 +93,14 @@ Everyday people will log into Merit and when they see their rating go up due to 
 #### MVP
 | Component | Priority | Estimated Time | Actual Time |
 | --- | :---: |  :---: | :---: | 
-| Installing and Setup for backend            | H | 2hr | hr |
+| Project Planning and proposal            | H | 2hr | 4 hr |
+| Installing and Setup for backend            | H | 2hr | 1hr |
 | Models and Views                            | H | 8hr | hr |
-| CRUD Routes and debugging, test on Postman | H | 5hr | hr |  
+| CRUD Routes and debugging, test on Postman | H | 5hr | 5 hr | 
+| SignUp                                     | H | 1hr | 2hr | 
+| SignIn                                     | H | 1hr | 2hr | 
+| SignOut                                    | H | 1hr | 1hr |
+| Change Password                             | H | 1hr | hr | 
 | Deploying backend                           | H | 3hr|  hr | 
 | Creating React App                          | H | 1hr | hr|
 | About page                                  | H | 1hr | hr|
@@ -107,7 +112,7 @@ Everyday people will log into Merit and when they see their rating go up due to 
 | Animations                                  | H | 3hr | hr |
 | CSS                                        | H | 3hr |  hr |
 | Deploy frontend                            | H | 1hr |  hr |
-| Total                                      | H | 53hrs| hr |
+| Total                                      | H | 59hrs| hr |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Actual Time |
