@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'api',
     'rest_framework',
     'rest_framework.authtoken',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -38,6 +39,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'merit.urls'
@@ -123,3 +125,12 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = 'api.User' 
+
+# For all domains
+CORS_ORIGIN_ALLOW_ALL = True
+
+# For specific domain
+# CORS_ORIGIN_ALLOW_ALL = False
+# CORS_ORIGIN_WHITELIST = (
+#   'http://localhost:8000',
+# )
