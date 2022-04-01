@@ -8,7 +8,7 @@
 |Day 1| Planning and Approval | Complete
 |Day 1| Set up backend with Python/Django| Complete
 |Day 1.5| Test backend | Complete
-|Day 2| Set up frontend with React then test | Incomplete
+|Day 2| Set up frontend with React then test | Complete
 |Day 2.5| Test frontend | Incomplete
 |Day 3| Minimal CSS, then JavaScript functions | Incomplete
 |Day 4| JavaScript functions, merit score cumulative function | Incomplete
