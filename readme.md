@@ -9,10 +9,10 @@
 |Day 1| Set up backend with Python/Django| Complete
 |Day 1.5| Test backend | Complete
 |Day 2| Set up frontend with React then test | Complete
-|Day 2.5| Test frontend | Incomplete
-|Day 3| Minimal CSS, then JavaScript functions | Incomplete
-|Day 4| JavaScript functions, merit score cumulative function | Incomplete
-|Day 5| MVP & Bug Fixes & Adding Seed Data | Incomplete
+|Day 2.5| Test frontend | Complete
+|Day 3| Minimal CSS, then JavaScript functions | Complete
+|Day 4| JavaScript functions, merit score cumulative function | Complete
+|Day 5| MVP & Bug Fixes & Adding Seed Data | Complete
 |Day 6| Debugging| Incomplete
 |Day 7| Full Styling with Animations | Incomplete
 |Day 8| Present | Incomplete
