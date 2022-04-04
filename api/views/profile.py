@@ -6,10 +6,10 @@ from ..serializers.profile import ProfileSerializer
 from ..models.profile import Profile
 from django.core.exceptions import PermissionDenied
 
-class ProfileView(APIView):
+class ProfilesView(APIView):
     def get(self, request):
-        profile = profile.objects.filter(author=request.user.id)
-        data = ProfileSerializer(profile, many=True).data
+        profiles = Profile.objects.filter(author=request.user.id)
+        data = ProfileSerializer(profiles, many=True).data
         return Response(data)
 
     def post(self, request):
@@ -21,12 +21,12 @@ class ProfileView(APIView):
         else:
             return Response(profile.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class ProfilesView(APIView):
+class ProfileView(APIView):
 
     def get(self, request, pk):
-        profile = get_object_or_404(profile, pk=pk)
+        profile = get_object_or_404(Profile, pk=pk)
         if request.user != profile.author:
-            raise PermissionDenied('Unauthorized, you do not own this blog post')
+            raise PermissionDenied('Unauthorized, you do not own this profile')
         data = ProfileSerializer(profile).data
         return Response(data)
     

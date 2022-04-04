@@ -19,8 +19,8 @@ urlpatterns = [
     #### Get all posts route
     path('overview/', OverviewView.as_view(), name='overview'),
     #### Get all profiles and Post
-    path('blogs/', ProfilesView.as_view(), name='profiles'),
+    path('profiles/', ProfilesView.as_view(), name='profiles'),
     #### Get, Put, Delete a profile
-    path('blogs/<int:pk>', ProfileView.as_view(), name='profile'),
+    path('profile/<int:pk>', ProfileView.as_view(), name='profile'),
 
 ]
