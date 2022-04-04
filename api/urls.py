@@ -1,6 +1,7 @@
 from django.urls import path
 from .views.users import SignUp, SignIn, ChangePassword, SignOut
 from .views.posts import PostsView, PostView, OverviewView
+from .views.profile import ProfileView, ProfilesView
 
 urlpatterns = [
     #### Post Route
@@ -16,5 +17,10 @@ urlpatterns = [
     #### Get and Detele route by post ID
     path('posts/<int:pk>', PostView.as_view(), name='posts'),
     #### Get all posts route
-    path('overview/', OverviewView.as_view(), name='overview')
+    path('overview/', OverviewView.as_view(), name='overview'),
+    #### Get all profiles and Post
+    path('blogs/', ProfilesView.as_view(), name='profiles'),
+    #### Get, Put, Delete a profile
+    path('blogs/<int:pk>', ProfileView.as_view(), name='profile'),
+
 ]
